@@ -1,3 +1,7 @@
-1.Clone and npm start
-2.Its a simple project feel free to improve this.
-3.Uses Wikipedia APi for data
+1. Clone this repo and npm start in cloned directory
+
+
+2. It's a simple project feel free to improve this.
+
+
+3.Uses Wikipedia API for data
