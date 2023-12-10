@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
@@ -37,7 +36,7 @@ function App() {
       setTldr(tldrSentences);
 
       // Extract sentences with numbers and consider them as stats.
-      const statsLines = sentences.slice(3).filter(sentence => /\d/.test(sentence));
+      const statsLines = sentences.slice(3).filter(sentence => /\d/.test(sentence)).slice(0, 5);
       setStats(statsLines);
 
       // Remove TLDR and stats sentences from fullText
@@ -50,7 +49,6 @@ function App() {
   }
 }, [term]);
    
-
  //helper func
 
  function removeSentences(text, sentencesToRemove) {
@@ -68,11 +66,11 @@ function App() {
        value={term} 
        onChange={(e) => setTerm(e.target.value)}
      />
-     <p><strong>TLDR:</strong> {tldr.join(" ")}</p>
-     <p><strong>Stats:</strong> {stats.join(" ")}</p>
-     <p><strong>Additional Information:</strong> {completeText.substring(0,1000)}</p>
+     <p><strong>TLDR:</strong> {tldr.splice(0,5).join(" ")}</p>
+     <p><strong>Stats:</strong> {stats.splice(0,5).join(" ")}</p>
+     <p><strong>Additional Information:</strong> {completeText.split('.').splice(0,5).join(". ")}</p>
    </div>
  );
 }
 
-export default App;
+export default App; 
